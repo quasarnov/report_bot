@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Query and Results</title>
+</head>
+<body>
+    <h2>Generated SQL Query</h2>
+    <form method="post" action="/execute-query">
+        <p><strong>Query:</strong></p>
+        <pre>{{ sql_query }}</pre>
+        <input type="hidden" name="sql_query" value="{{ sql_query }}">
+        <input type="submit" value="Execute Query">
+    </form>
+
+    <h2>Query Results</h2>
+    {% if rows %}
+        <table border="1">
+            <tr>
+                {% for column in columns %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in rows %}
+                <tr>
+                    {% for cell in row %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        {% if error %}
+            <p>Error: {{ error }}</p>
+        {% else %}
+            <p>No results to display, or query did not produce a result set.</p>
+        {% endif %}
+    {% endif %}
+    
+    <a href="/sql-query">Try another query</a>
+    <a href="/">Back to Home</a>
+</body>
+</html>

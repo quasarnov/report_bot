@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Schema</title>
+</head>
+<body>
+    <h2>Database Schema</h2>
+    {% for table, details in schema_info.items() %}
+        <h3>Table: {{ table }}</h3>
+        <p><strong>Columns:</strong></p>
+        <ul>
+            {% for column in details['columns'] %}
+                <li>{{ column }}</li>
+            {% endfor %}
+        </ul>
+        {% if details['relationships'] %}
+            <p><strong>Relationships:</strong></p>
+            <ul>
+                {% for relationship in details['relationships'] %}
+                    <li>{{ relationship }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+    <a href="{{ url_for('home') }}">Back</a>
+    <a href="{{ url_for('sql_query') }}">Make Query</a>
+</body>
+</html>

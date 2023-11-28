@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Connector</title>
+</head>
+<body>
+    <h2>Connect to a Database</h2>
+    <form method="post">
+        <label for="db_type">Database Type:</label>
+        <select name="db_type" id="db_type">
+            <option value="MySQL">MySQL</option>
+            <option value="PostgreSQL">PostgreSQL</option>
+        </select><br><br>
+        
+        <label for="host">Host:</label>
+        <input type="text" id="host" name="host"><br><br>
+        
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        
+        <label for="database">Database Name:</label>
+        <input type="text" id="database" name="database"><br><br>
+        
+        <input type="submit" value="Connect">
+    </form>
+</body>
+</html>
